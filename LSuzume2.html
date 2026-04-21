@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Quest 💕</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    height:100vh;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+/* CONTAINER */
+.container{
+    text-align:center;
+    padding:20px;
+    color:white;
+}
+
+/* TITLE */
+.title{
+    font-size:2rem;
+    margin-bottom:10px;
+    opacity:0;
+}
+
+.subtitle{
+    font-size:1.1rem;
+    margin-bottom:25px;
+    opacity:0;
+}
+
+/* INPUTS */
+.input-box{
+    margin:10px 0;
+    opacity:0;
+}
+
+input{
+    padding:12px;
+    border:none;
+    border-radius:25px;
+    width:250px;
+    text-align:center;
+    outline:none;
+}
+
+/* GIF */
+.gif{
+    width:150px;
+    margin:20px auto;
+    opacity:0;
+}
+
+/* BUTTON */
+.btn{
+    margin-top:20px;
+    padding:12px 30px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(45deg,#ff4e8a,#ff758c);
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    opacity:0;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="title">💞 Ab thoda sa magic create karte hain… ✨</div>
+    <div class="subtitle">Bas apna aur apne special person ka naam likho 💖</div>
+
+    <div class="input-box">
+        <input type="text" id="yourName" placeholder="Your Name 😎">
+    </div>
+
+    <div class="input-box">
+        <input type="text" id="partnerName" placeholder="Partner Name ❤️">
+    </div>
+
+    <img src="cute.gif" class="gif">
+
+    <button class="btn" onclick="saveNames()">Continue 💘</button>
+
+</div>
+
+<script>
+
+// ANIMATION
+gsap.to(".title", {opacity:1, y:-20, duration:1.2});
+gsap.to(".subtitle", {opacity:1, y:-10, delay:0.3, duration:1.2});
+gsap.to(".input-box", {opacity:1, y:-10, delay:0.6, duration:1, stagger:0.2});
+gsap.to(".gif", {opacity:1, scale:1.1, delay:1, duration:1});
+gsap.to(".btn", {opacity:1, scale:1.1, delay:1.3, duration:1, ease:"back.out(1.7)"});
+
+
+// SAVE DATA
+function saveNames(){
+    let yourName = document.getElementById("yourName").value;
+    let partnerName = document.getElementById("partnerName").value;
+
+    if(yourName === "" || partnerName === ""){
+        alert("Arre 😏 naam to daalo pehle!");
+        return;
+    }
+
+    // Save in localStorage
+    localStorage.setItem("yourName", yourName);
+    localStorage.setItem("partnerName", partnerName);
+
+    // Next Page
+    window.location.href = "LSuzume3.html";
+}
+
+</script>
+
+</body>
+</html>

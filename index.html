@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Quest 💖</title>
+
+<!-- GSAP CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    overflow:hidden;
+}
+
+/* VIDEO BACKGROUND */
+.video-bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-1;
+}
+
+/* OVERLAY */
+.overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.45);
+}
+
+/* CONTENT */
+.container{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+/* TEXT */
+.title{
+    font-size:2.3rem;
+    font-weight:600;
+    opacity:0;
+}
+
+.subtitle{
+    margin-top:15px;
+    font-size:1.2rem;
+    opacity:0;
+}
+
+/* BUTTON */
+.btn{
+    margin-top:40px;
+    padding:12px 30px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(45deg,#ff4e8a,#ff9a9e);
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    opacity:0;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<!-- VIDEO -->
+<video class="video-bg" autoplay muted loop id="bgVideo" poster="tanjiro.jpg">
+    <source src="suzume.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="container">
+    <div class="title">💖 Ek choti si journey… sirf tumhare liye ✨</div>
+    <div class="subtitle">Ready ho ek aisi story ke liye jo sirf humari hai? 😍</div>
+
+    <button class="btn" onclick="nextPage()">Start the Love Quest 🚀</button>
+</div>
+
+<script>
+
+// AUTO SOUND ENABLE (USER INTERACTION REQUIRED)
+document.body.addEventListener("click", () => {
+    const video = document.getElementById("bgVideo");
+    video.muted = false;
+    video.play();
+}, { once: true });
+
+
+// GSAP ANIMATION
+gsap.to(".title", {
+    opacity:1,
+    y:-20,
+    duration:1.5,
+    ease:"power3.out"
+});
+
+gsap.to(".subtitle", {
+    opacity:1,
+    y:-10,
+    delay:0.5,
+    duration:1.5,
+    ease:"power3.out"
+});
+
+gsap.to(".btn", {
+    opacity:1,
+    scale:1.1,
+    delay:1,
+    duration:1,
+    ease:"back.out(1.7)"
+});
+
+
+// NEXT PAGE FUNCTION
+function nextPage(){
+    window.location.href = "LSuzume2.html";
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Surprise 💘</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    height:100vh;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    overflow:hidden;
+    overflow-y: auto;
+}
+
+/* CONTAINER */
+.container{
+    padding:20px;
+}
+
+/* TITLE */
+.title{
+    font-size:1.8rem;
+    margin-bottom:15px;
+    opacity:0;
+}
+
+/* IMAGE */
+.image-box{
+    width:260px;
+    margin:20px auto;
+    filter:blur(15px);
+    transition:1s;
+}
+
+.image-box img{
+    width:100%;
+    border-radius:15px;
+}
+
+/* INPUT */
+input{
+    padding:10px;
+    border:none;
+    border-radius:25px;
+    text-align:center;
+    margin-top:10px;
+    outline:none;
+}
+
+/* BUTTON */
+.btn{
+    margin-top:15px;
+    padding:10px 20px;
+    border:none;
+    border-radius:25px;
+    background:#ff4e8a;
+    color:white;
+    cursor:pointer;
+}
+
+/* GIF */
+.gif{
+    width:140px;
+    margin-top:20px;
+    opacity:0;
+}
+
+/* FINAL TEXT */
+.final-text{
+    margin-top:15px;
+    font-size:1.2rem;
+    opacity:0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="title">🔐 Ek last secret… sirf tumhare liye 💖</div>
+
+    <div class="image-box" id="imageBox">
+        <img src="Sakura3.jpg">
+    </div>
+
+    <input type="password" id="password" placeholder="Enter Secret Password 🔑">
+
+    <br>
+    <button class="btn" onclick="unlock()">Unlock 💘</button>
+
+    <img src="2026.gif" class="gif" id="finalGif">
+
+    <div class="final-text" id="finalText"></div>
+
+</div>
+
+<script>
+
+// GET NAME
+let yourName = localStorage.getItem("yourName");
+
+// ANIMATION
+gsap.to(".title",{opacity:1,y:-20,duration:1.2});
+
+
+// PASSWORD LOGIC
+function unlock(){
+    let pass = document.getElementById("password").value;
+
+    if(pass.toLowerCase() === "love"){
+        // REMOVE BLUR
+        document.getElementById("imageBox").style.filter = "blur(0px)";
+
+        // SHOW GIF + TEXT
+        gsap.to("#finalGif",{opacity:1,scale:1.1,duration:1});
+        
+        document.getElementById("finalText").innerText =
+        `💖 ${yourName}…  
+        I don’t need anything in this world…  
+        bas tum chahiye ❤️`;
+
+        gsap.to("#finalText",{opacity:1,y:-10,duration:1.2});
+
+    } else {
+        alert("😏 Wrong password… try something special");
+    }
+}
+
+</script>
+
+</body>
+</html>

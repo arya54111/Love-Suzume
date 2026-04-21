@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Quiz 💘</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    height:100vh;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    overflow:hidden;
+}
+
+/* CONTAINER */
+.container{
+    padding:20px;
+    width:100%;
+    max-width:350px;
+}
+
+/* TITLE */
+.title{
+    font-size:1.8rem;
+    margin-bottom:15px;
+    opacity:0;
+}
+
+.question{
+    font-size:1.2rem;
+    margin-bottom:20px;
+    opacity:0;
+}
+
+/* OPTIONS */
+.option{
+    background:white;
+    color:#ff4e8a;
+    padding:10px;
+    border-radius:25px;
+    margin:8px 0;
+    cursor:pointer;
+    opacity:0;
+    transition:0.3s;
+}
+
+.option:hover{
+    transform:scale(1.08);
+}
+
+/* RESULT */
+.result{
+    margin-top:15px;
+    font-size:1.1rem;
+    min-height:40px;
+    opacity:0;
+}
+
+/* BUTTON */
+.btn{
+    margin-top:20px;
+    padding:10px 25px;
+    border:none;
+    border-radius:25px;
+    background:white;
+    color:#ff4e8a;
+    cursor:pointer;
+    opacity:0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="title">🧠 Chalo test karte hain…</div>
+    <div class="question">Tum mujhe kitna jaante ho? 💖</div>
+
+    <div class="option" onclick="checkAnswer(1)">😎 Bahut kam</div>
+    <div class="option" onclick="checkAnswer(2)">🙂 Thoda thoda</div>
+    <div class="option" onclick="checkAnswer(3)">❤️ Sab kuch</div>
+
+    <div class="result" id="resultText"></div>
+
+    <button class="btn" id="nextBtn" onclick="nextPage()">Next 💫</button>
+
+</div>
+
+<script>
+
+// ANIMATIONS
+gsap.to(".title",{opacity:1,y:-20,duration:1});
+gsap.to(".question",{opacity:1,y:-10,delay:0.3,duration:1});
+gsap.to(".option",{opacity:1,y:-10,delay:0.6,duration:1,stagger:0.2});
+
+
+// QUIZ LOGIC
+function checkAnswer(choice){
+    let result = document.getElementById("resultText");
+    let nextBtn = document.getElementById("nextBtn");
+
+    if(choice === 1){
+        result.innerText = "😏 Itna bhi kya busy rehte ho? Mujhe aur jaana padega!";
+    }
+    else if(choice === 2){
+        result.innerText = "🙂 Not bad… but abhi aur effort chahiye 💘";
+    }
+    else{
+        result.innerText = "😍 Perfect! Tum to dil ke bohot kareeb ho ❤️";
+    }
+
+    gsap.to(".result",{opacity:1,y:-5,duration:0.5});
+    gsap.to(".btn",{opacity:1,scale:1.1,delay:0.3,duration:0.8});
+}
+
+
+// NEXT PAGE
+function nextPage(){
+    window.location.href = "LSuzume7.html";
+}
+
+</script>
+
+</body>
+</html>
